@@ -1,45 +1,13 @@
 /*Colors*/
 :root {
-  --primary-font-color: black;
-  --secondary-font-color: #333333;
-  --primary-background-color: #ffffff;
-  --image-background-spare-color: #5d8eaf;
-  --secondary-background-color: #83b3d3;
-  --advantage-background-grey: rgba(131, 179, 211, 0.12);
-  --advantage-background-dark-grey: rgba(131, 179, 211, 0.2);
-  --find-hotel-button-color: #756257;
-  --find-button-hover: #615048;
-  --favorite-hotels-button-color: #7db54f;
-  --favorite-hotels-button-color-focus: #6c9e42;
-  --backing-background: #f2f2f2;
-  --view-button-background: #e6e6e6;
-  --social-icon-hover: #68a2ca;
-  --find-button-active: rgba(255, 255, 255, 0.3);
-  --input-price-hover: rgba(255, 255, 255, 0.6);
-  --input-price-focus: #81b3d2;
-  --body-box-shadow: rgba(0, 0, 0, 0.2);
-  --navigation-user-link-active: rgba(117, 98, 87, 0.3);
-  --subscribe-email-invalid: #ff5757;
-  --control-radio-check: #3f5e72;
-  --range-toggle-focus-shadow: rgba(0, 0, 0, 0.25);
-  --range-toggle-active-shadow: rgba(0, 0, 0, 0.4);
-  --popover-shadow: rgba(0, 0, 0, 0.15);
+  --color-black: black;
+  --color-white: #ffffff;
+  --color-grey-400: rgba(0, 0, 0, 0.2);
+  --color-grey-600: #979797;
 }
 
-@font-face {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/ptsans-400.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "PT Sans";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/ptsans-700.woff2") format("woff2");
-  font-display: swap;
+p {
+  margin: 0;
 }
 
 /*Sticky-footer -> height of page*/
@@ -52,15 +20,14 @@ specify the page_width */
 
 body {
   min-height: 100%;
-  font-family: "PT Sans", Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
-  color: var(--primary-font-color);
-  background-color: var(--backing-background);
+  color: var(--color-black);
+  background-color: var(--color-white);
   width: 375px;
   margin: 0 auto;
-  box-shadow: 0px 0px 15px var(--body-box-shadow);
 }
 
 .visually-hidden {
@@ -82,9 +49,97 @@ body {
 
 /*Header*/
 .page-header__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 36px;
+  margin-bottom: 20px;
+}
+
+.page-header__information {
+  background-image: url("..//img/information.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+}
+
+.page-header__logo {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-black);
+  margin-left: 5px;
+  word-break: break-all;
+  max-width: 150px;
+}
+
+/*Bonus_section*/
+.bonus__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px;
+  box-shadow: 2px 2px 16px var(--color-grey-400);
+  border-radius: 20px;
+  background-color: var(--color-white);
+  position: relative;
+  max-width: 335px;
+}
+
+.bonus__wrapper::before {
+  content: "";
+  position: absolute;
+  background-image: linear-gradient(180deg, #D2333E 0%, #F54B55 100%);
+  width: 375px;
+  height: 148px;
+  top: 50%;
+  left: -20px;
+  box-sizing: border-box;
+  z-index: -1;
+}
+
+.bonus__burning {
   display: grid;
-  align-items: center;
-  padding-top: 10px;
-  padding-bottom: 14px;
-  background: transparent;
+  grid-column-gap: 8px;
+  grid-template-columns: auto 24px auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-grey-600);
+  word-break: break-all;
+  max-width: 230px;
+}
+
+.bonus__burningIcon {
+  background-image: url("..//img/bonus-burningIcon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 24px;
+  height: 24px;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+.bonus__currentQuantity {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 12px;
+  word-break: break-all;
+  max-width: 230px;
+}
+
+.bonus__informationButton {
+  background-image: url("..//img/bonus-informationButton.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #D4343F;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  align-self: center;
 }

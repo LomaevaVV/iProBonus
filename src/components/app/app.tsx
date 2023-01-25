@@ -2,10 +2,12 @@ import Bonus from '../bonus/bonus';
 
 function App(): JSX.Element {
   return (
-    <body className="page__body">
+    <div className="page-body__wrapper">
       <header className="page-header">
         <div className="page-header__wrapper wrapper">
-          <p>ЛОГОТИП</p>
+          <a className="page-header__logo logo" href='/'>
+            Логотип
+          </a>
           <button className="page-header__information" type="button">
             <span className="visually-hidden">Открыть блок Информации</span>
           </button>
@@ -17,7 +19,7 @@ function App(): JSX.Element {
           <Bonus />
         </div>
       </main>
-    </body>
+    </div>
   );
 }
 
