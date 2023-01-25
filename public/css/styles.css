@@ -1,0 +1,90 @@
+/*Colors*/
+:root {
+  --primary-font-color: black;
+  --secondary-font-color: #333333;
+  --primary-background-color: #ffffff;
+  --image-background-spare-color: #5d8eaf;
+  --secondary-background-color: #83b3d3;
+  --advantage-background-grey: rgba(131, 179, 211, 0.12);
+  --advantage-background-dark-grey: rgba(131, 179, 211, 0.2);
+  --find-hotel-button-color: #756257;
+  --find-button-hover: #615048;
+  --favorite-hotels-button-color: #7db54f;
+  --favorite-hotels-button-color-focus: #6c9e42;
+  --backing-background: #f2f2f2;
+  --view-button-background: #e6e6e6;
+  --social-icon-hover: #68a2ca;
+  --find-button-active: rgba(255, 255, 255, 0.3);
+  --input-price-hover: rgba(255, 255, 255, 0.6);
+  --input-price-focus: #81b3d2;
+  --body-box-shadow: rgba(0, 0, 0, 0.2);
+  --navigation-user-link-active: rgba(117, 98, 87, 0.3);
+  --subscribe-email-invalid: #ff5757;
+  --control-radio-check: #3f5e72;
+  --range-toggle-focus-shadow: rgba(0, 0, 0, 0.25);
+  --range-toggle-active-shadow: rgba(0, 0, 0, 0.4);
+  --popover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/ptsans-400.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/ptsans-700.woff2") format("woff2");
+  font-display: swap;
+}
+
+/*Sticky-footer -> height of page*/
+html {
+  height: 100%;
+}
+
+/* CONTAINER /
+specify the page_width */
+
+body {
+  min-height: 100%;
+  font-family: "PT Sans", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  color: var(--primary-font-color);
+  background-color: var(--backing-background);
+  width: 375px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px var(--body-box-shadow);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/*Header*/
+.page-header__wrapper {
+  display: grid;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 14px;
+  background: transparent;
+}
