@@ -4,10 +4,20 @@
   --color-white: #ffffff;
   --color-grey-400: rgba(0, 0, 0, 0.2);
   --color-grey-600: #979797;
+  --color-red-400: #F54B55;
+  --color-red-600: #D4343F;
+  --color-red-800: #D2333E;
+  --color-green-800: "#3fdc62"
 }
 
 p {
   margin: 0;
+}
+
+.loader {
+  margin: auto;
+  margin-top: 30%;
+  color: var(--color-green-800);
 }
 
 /*Sticky-footer -> height of page*/
@@ -93,7 +103,7 @@ body {
 .bonus__wrapper::before {
   content: "";
   position: absolute;
-  background-image: linear-gradient(180deg, #D2333E 0%, #F54B55 100%);
+  background-image: linear-gradient(180deg, var(--color-red-800) 0%, var(--color-red-400));
   width: 375px;
   height: 148px;
   top: 50%;
@@ -137,7 +147,7 @@ body {
   background-image: url("..//img/bonus-informationButton.svg");
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid #D4343F;
+  border: 1px solid var(--color-red-600);
   border-radius: 50%;
   width: 35px;
   height: 35px;

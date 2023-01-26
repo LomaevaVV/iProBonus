@@ -5,6 +5,8 @@ import App from './components/app/app';
 import { DefaultAuthData } from './const';
 import { store } from './store';
 import { checkAuthAction } from './store/api-actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 store.dispatch(checkAuthAction(DefaultAuthData));
 
@@ -16,6 +18,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <ToastContainer hideProgressBar />
     </Provider>
   </React.StrictMode>,
 );

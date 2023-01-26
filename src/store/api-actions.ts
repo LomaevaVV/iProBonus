@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { toast } from 'react-toastify';
 import { ACCESS_KEY, APIRoute } from '../const';
 import { Bonus } from '../types/bonus';
 import { AppDispatch, State } from '../types/state';
@@ -22,7 +23,9 @@ export const fetchBonusAction = createAsyncThunk<Bonus, string, {
 
       return bonus?.data;
     } catch(e) {
-      window.console.log('Ошибка загрузки бонусов');
+      toast.error('Не удается загрузить бонусы', {
+        position: toast.POSITION.TOP_CENTER,
+      });
 
       throw e;
     }
@@ -52,7 +55,9 @@ export const checkAuthAction = createAsyncThunk<string, AuthData, {
 
       return accessToken.accessToken;
     } catch(e) {
-      window.console.log('Ошибка авторизации');
+      toast.error('Ошибка авторизации', {
+        position: toast.POSITION.TOP_CENTER,
+      });
 
       throw e;
     }

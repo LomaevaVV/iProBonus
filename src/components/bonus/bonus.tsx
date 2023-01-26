@@ -1,8 +1,10 @@
 import { useAppDispatch, useAppSelector } from '../../hooks/index';
-import { getBonus, getToken } from '../../store/selectors';
+import { getBonus, getBonusFetchStatus, getToken } from '../../store/selectors';
 import { useEffect } from 'react';
 import { fetchBonusAction } from '../../store/api-actions';
 import dayjs from 'dayjs';
+import { FetchStatus } from '../../const';
+import Loader from '../loader/loader';
 
 export default function Bonus(): JSX.Element {
   const token = useAppSelector(getToken);
@@ -12,7 +14,15 @@ export default function Bonus(): JSX.Element {
     token !== '' && dispatch(fetchBonusAction(token));
   }, [dispatch, token]);
 
+  const bonusFetchStatus = useAppSelector(getBonusFetchStatus);
   const bonus = useAppSelector(getBonus);
+
+  if (
+    bonusFetchStatus === FetchStatus.Idle ||
+    bonusFetchStatus === FetchStatus.Loading
+  ) {
+    return <Loader />;
+  }
 
   return (
     <section className="page-main__bonus bonus">

@@ -6,13 +6,11 @@ import { fetchBonusAction, checkAuthAction } from './api-actions';
 type DataBonus = {
   bonus?: Bonus;
   bonusFetchStatus: string;
-  tokenFetchStatus: string;
   accessToken: string;
 };
 
 const initialState: DataBonus = {
   bonusFetchStatus: FetchStatus.Idle,
-  tokenFetchStatus: FetchStatus.Idle,
   accessToken: ''
 };
 
@@ -32,7 +30,6 @@ export const reducer = createReducer(
       })
       .addCase(checkAuthAction.fulfilled, (state, action) => {
         state.accessToken = action.payload;
-        state.tokenFetchStatus = FetchStatus.Success;
       });
   }
 );
