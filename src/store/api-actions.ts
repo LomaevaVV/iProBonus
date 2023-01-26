@@ -1,22 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { APIRoute } from '../const';
+import { ACCESS_KEY, APIRoute } from '../const';
 import { Bonus } from '../types/bonus';
 import { AppDispatch, State } from '../types/state';
 import { AuthData } from '../types/auth-data';
+import { BonusResponseData, TokenResponseData } from '../types/response-data';
 
 
-export const fetchBonusAction = createAsyncThunk<Bonus, undefined, {
+export const fetchBonusAction = createAsyncThunk<Bonus, string, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'data/fetchBonus',
-  async (_arg, {extra: api}) => {
+  async (token, {extra: api}) => {
     try {
-      const {data} = await api.get<Bonus>(APIRoute.IBonus);
+      const {data: bonus} = await api.get<BonusResponseData>(`${APIRoute.IBonus}/${token}`,
+        {headers: {
+          'AccessKey': ACCESS_KEY,
+        }});
 
-      return data;
+      return bonus?.data;
     } catch(e) {
       window.console.log('Ошибка загрузки бонусов');
 
@@ -32,8 +36,8 @@ export const checkAuthAction = createAsyncThunk<string, AuthData, {
   'user/login',
   async (DefaultAuthData, {extra: api}) => {
     try {
-      const {data: accessToken} = await api.post<string>(APIRoute.Login,
-        { body: {
+      const {data: accessToken} = await api.post<TokenResponseData>(APIRoute.Login,
+        {
           'idClient': DefaultAuthData.idClient,
           'accessToken': DefaultAuthData.accessToken,
           'paramName': DefaultAuthData.paramName,
@@ -41,12 +45,12 @@ export const checkAuthAction = createAsyncThunk<string, AuthData, {
           'latitude': DefaultAuthData.latitude,
           'longitude': DefaultAuthData.longitude,
           'sourceQuery': DefaultAuthData.sourceQuery
-        }},
+        },
         {headers: {
-          'AccessKey': '891cf53c-01fc-4d74-a14c-592668b7a03c',
+          'AccessKey': ACCESS_KEY,
         }});
 
-      return accessToken;
+      return accessToken.accessToken;
     } catch(e) {
       window.console.log('Ошибка авторизации');
 
